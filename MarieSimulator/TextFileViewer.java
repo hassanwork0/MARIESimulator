@@ -2,7 +2,6 @@
 // Author:      Julie Lobur
 // SDK Version: 1.4.0
 // Date:        December 9, 2002
-//              Modified April 22, 2006
 // Notice:      This program augments the MARIE machine simulator, but can be used for many
 //              other purposes.  This code may be freely used for noncommercial purposes.
 package MarieSimulator;
@@ -113,7 +112,7 @@ public class TextFileViewer extends JFrame {
       scrollPane.getViewport().setPreferredSize(new Dimension(300, 225));
     }
     else  {
-      getTextContent(fileName, this);
+      getTextContent(fileName);
       scrollPane = new JScrollPane(displayArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                                                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
       setSize(new Dimension(350, 360));
@@ -168,46 +167,25 @@ public class TextFileViewer extends JFrame {
     }
   } // getHTMLContent()
 
-  void getTextContent(String aTextFile, Object app) {
+  void getTextContent(String aTextFile) {
 /******************************************************************************************
 *  This method translates a plain text file to a preformatted HTML file by prepending     *
 *  and appending the appropriate tags.  Once these tags have been added, the modified     *
 *  text file is used for input by the getHTMLContent() method so that the plain text can  *
 *  be displayed properly in a JEditorPane.  When JEditorPane reads a plain text file,     *
-*  it exhibits the same "scroll-to-the-bottom" behavior as JTextPane.  HTML content       *
+*  it exhibits the same "scroll-to-the-bottom behavior as JTextPane.  HTML content        *
 *  prevents this scrolling (!).  The temporary file that is used as input for the HTML    *
 *  input is deleted before this method terminates.                                        *
-*                                                                                         *
-*  April 2006 Update:  The MARIE package has been modified to allow the simulator to      *
-*                      run from an executable JAR file. In order to be able to read help  *
-*                      files, etc., from the archive, the path qualification has to be    *
-*                      removed. However, we still need to be able to read a qualified     *
-*                      file name for MARIE assembly listings, etc. This is handled in a   *
-*                      try..catch sequence that first tries to open straightforwardly     *
-*                      whatever file name is passed to this routine. If that file cannot  *
-*                      be found, then we attempt to open it as a "reource," which is how  *
-*                      JAR file contents must be accessed. If neither one can be opened,  *
-*                      the "file not found" message is displayed.                         *
 ******************************************************************************************/
-        
     BufferedReader textFile = null;
-    BufferedWriter tempFile = null;  
-    InputStream in;
-
+    BufferedWriter tempFile = null; 
     boolean done = false;
-    in = TextFileViewer.class.getResourceAsStream(aTextFile);
-    
     try {                                             // Try to open the input.
       textFile = new BufferedReader( new FileReader(aTextFile) );
-         } // try
-    catch (FileNotFoundException e) {  
-      try {                               // Try to open input as a JAR resource.
-        textFile = new BufferedReader(new InputStreamReader(in));      
-      } // try
-      catch (Exception e1) {        
-        displayArea.setText("<HTML>File " + e.getMessage() + " not found.</HTML>");
-        return;
-      } // catch
+    } // try
+    catch (FileNotFoundException e) {
+      displayArea.setText("<HTML>File " + aTextFile + " not found.</HTML>");
+      return;
     } // catch
     try {                                             // Try to open the output.
       tempFile = new BufferedWriter( new FileWriter("TextFileViewer.out") );

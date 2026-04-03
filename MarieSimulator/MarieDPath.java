@@ -61,8 +61,8 @@ public class MarieDPath extends JFrame {
   public static final String      formfeed = "\014";
   public static final String fileSeparator = System.getProperty("file.separator");
 
-  public static final String HELP_FILE = "mdphlp1.txt";  // Help file name.
-  
+  public static final String HELP_FILE =          // Help file name.
+                                  "MarieSimulator"+fileSeparator+"mdphlp1.txt";
   public static final JFileChooser exeFileChooser = 
                                    new JFileChooser(System.getProperty("user.dir")); 
   public static final int HEX             =      0;      // Register display modes,
@@ -330,9 +330,9 @@ public class MarieDPath extends JFrame {
   
   JPanel    infoPanel = new JPanel();       // Information panel.
   JLabel  pgmTitle = new JLabel("MARIE DataPath Simulator - Version 1.0");
-  JLabel copyRight = new JLabel("Copyright (c) 2003, 2006");
+  JLabel copyRight = new JLabel("Copyright (c) 2003");
   JLabel accompany = new JLabel("To accompany:");
-  JLabel   theBook = new JLabel("The Essentials of Computer Organization and Architecture 2/e  ");
+  JLabel   theBook = new JLabel("The Essentials of Computer Organization and Architecture      ");
   JLabel   authors = new JLabel("By Linda M. Null & Julia M. Lobur");
   JLabel publisher = new JLabel("Jones & Bartlett Publishers");
   

@@ -1,0 +1,8 @@
+ORG 100
+Load A
+Add B
+Store Result
+Halt 0
+A, Dec 5
+B, Dec 3
+Result, Dec 0

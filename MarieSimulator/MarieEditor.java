@@ -57,8 +57,10 @@ public class MarieEditor extends JFrame {
   public static final String fileSeparator = System.getProperty("file.separator");
   public static final String      lineFeed = System.getProperty("line.separator");
 
-  public static final String EDIT_HELP = "m1edit1.txt";
-  public static final String INSTR_HELP = "m1isa1.txt";
+  public static final String EDIT_HELP =
+                             "MarieSimulator"+fileSeparator+"m1edit1.txt";
+  public static final String INSTR_HELP =
+                             "MarieSimulator"+fileSeparator+"m1isa1.txt";
 
   JPanel editorPane;                        // Container for all editor components
   JMenuBar menuBar = new JMenuBar();        // Container for the menu as follows:
@@ -731,7 +733,6 @@ public class MarieEditor extends JFrame {
                                "Assembly Listing for "+currFilePrefix+ASSEMBLER_FILE_TYPE, 
                                 currFilePath + currFilePrefix+LISTING_FILE_TYPE, 
                                 false);
-                                             
           Dimension myFrameSize = this.getSize();
           Dimension tfvSize = listingFileViewer.getPreferredSize();
           Point location = getLocation();

@@ -1,0 +1,24 @@
+     Assembly listing for: codeone.mas
+                Assembled: Sat Apr 04 01:43:54 EET 2026
+
+         |         ORG 100           
+100 1104 |         LOAD A            
+101 3105 |         ADD B             
+102 2106 |         STORE Result      
+103 7000 |         HALT 000          
+104 0005 |  A      DEC 5             
+105 0003 |  B      DEC 3             
+106 0000 |  Result DEC 0             
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          A      |   104   | 100
+          B      |   105   | 101
+          Result |   106   | 102
+         --------------------------------------------------
+
+
