@@ -1,0 +1,8 @@
+ORG 100
+Load A
+Subt B
+Store Sub
+Halt 000
+A, DEC 3
+B, DEC 5
+Sub, DEC 0

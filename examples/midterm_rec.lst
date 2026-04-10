@@ -1,0 +1,24 @@
+     Assembly listing for: midterm_rec.mas
+                Assembled: Sun Apr 05 20:52:43 EET 2026
+
+         |         ORG 100           
+100 1105 |         LOAD B            
+101 4104 |         SUBT A            
+102 2106 |         STORE Sub         
+103 7000 |         HALT              
+104 0003 |  A      DEC 3             
+105 0005 |  B      DEC 5             
+106 0000 |  Sub    DEC 0             
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          A      |   104   | 101
+          B      |   105   | 100
+          Sub    |   106   | 102
+         --------------------------------------------------
+
+
